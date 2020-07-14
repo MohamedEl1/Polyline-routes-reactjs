@@ -14,8 +14,9 @@ app.get('/getRoute',async(req,res)=>{
     const from = params[0].split('=')[1];
     const to = params[1].split('=')[1];
     console.log(from,to)
-         axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${from}&destination=${to}&key=${API_KEY}&sensor=false&alternatives=true`)
+         axios.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${from}&destination=${to}&key=AIzaSyCTb0TYtljaDMspykPRLtb94TD3fAy059I&sensor=false&alternatives=true`)
         .then(function (response) {
+          console.log(response.data)
             res.send(response.data)
           })
           .catch(function (error) {

@@ -129,12 +129,15 @@ class App extends React.Component {
       data = await fetch(
         `http://localhost:3001/getRoute?source=${from}&destination=${to}`
       );
+      
     } catch (error) {
       console.log(error);
     }
     data = await data.text().then(data => JSON.parse(data));
+    console.log(data)
     if (data.status === "OK" && data.routes.length) {
       let wayPoints = [...this.state.wayPoints];
+      console.log(wayPoints)
       let wayPoint = wayPoints.find(point => point.id === wayPointId);
       wayPoints.geoCodedWayPoints = [];
       wayPoint.geoCodedWayPoints = data.routes || [];
